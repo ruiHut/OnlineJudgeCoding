@@ -1,0 +1,89 @@
+package com.dataStructure.优先队列;
+
+import java.util.ArrayList;
+
+/**
+ * @program: HUTRepository
+ * @description: 优先队列之堆的基本表示
+ * @author: Mr.Zhou
+ * @create: 2018-12-02 18:00
+ **/
+
+public class 堆的基本表示 {
+
+}
+
+/**
+ * 二叉树实现最大堆
+ *
+ * @param <E>
+ */
+class MaxHeap<E extends Comparable<E>> {
+    // 使用动态数组实现
+    private ArrayList<E> data;
+
+    // 初始化可设置数组大小
+    public MaxHeap(int capacity) {
+        data = new ArrayList<>(capacity);
+    }
+
+    /**
+     * 返回堆中的元素个数
+     */
+    public int size() {
+        return data.size();
+    }
+
+    /**
+     * 返回一个 布尔值，表示堆中是否为空
+     */
+    public boolean isEmpty() {
+        return data.isEmpty();
+    }
+
+    /**
+     * 返回完全二叉树的数组表示中 ， 一个索引表示的元素的父亲节点的索引
+     */
+    private int parent(int index) {
+        if (index == 0)
+            throw new IllegalArgumentException("index - 0 ");
+        return (index - 1) / 2;
+    }
+
+    /**
+     * 返回完全二叉树的数组表示中 ， 一个索引表示的元素的左孩子节点的索引
+     */
+    private int leftChild(int index) {
+        return index * 2 + 1;
+    }
+
+    /**
+     * 返回完全二叉树的数组表示中 ， 一个索引表示的元素的右孩子节点的索引
+     */
+    private int rightChild(int index) {
+        return index * 2 + 2;
+    }
+
+    /**
+     * 向堆中添加元素
+     *
+     * @param e
+     */
+    public void add(E e) {
+        data.add(e);
+        siftUp(data.size() - 1);
+    }
+
+    /**
+     *
+     * @param i
+     */
+
+    private void siftUp(int i) {
+
+        while (i > 0 && data.get(parent(i)).compareTo(data.get(i)) < 0) {
+
+        }
+    }
+
+}
