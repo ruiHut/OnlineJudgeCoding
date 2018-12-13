@@ -1,7 +1,6 @@
 package com.leedcode.tree;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -16,13 +15,13 @@ public class _349_求两个矩阵的交集 {
     public static void main(String[] args) {
         int[] nums1 = {1 , 2 , 2 , 1};
         int[] nums2 = {2 , 2};
-        Solution solution = new Solution();
-        int[] nums3 = solution.intersection(nums1 , nums2);
-        System.out.println(Arrays.asList(nums3).size());
+//        Solutions solution = new Solution();
+//        int[] nums3 = solution.intersection(nums1 , nums2);
+//        System.out.println(Arrays.asList(nums3).size());
     }
 }
 
-class Solution {
+class Solutions {
     public int[] intersection(int[] nums1, int[] nums2) {
 
         TreeSet<Integer> treeSet = new TreeSet<Integer>();
