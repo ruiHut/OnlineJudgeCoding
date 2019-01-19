@@ -36,13 +36,12 @@ class Solution {
         }
         return head;
     }
-
-}
-
-class ListNode {
-    int val ;
-    ListNode next;
-    ListNode(int x ){
-        val = x ;
+    private class ListNode {
+        int val ;
+        ListNode next;
+        ListNode(int x ){
+            val = x ;
+        }
     }
 }
+

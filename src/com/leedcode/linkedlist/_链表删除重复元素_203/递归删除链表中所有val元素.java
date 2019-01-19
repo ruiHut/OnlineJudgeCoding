@@ -20,36 +20,36 @@ public class 递归删除链表中所有val元素 {
 //         System.out.println(head);
 
      }
-    public ListNode removeElements(ListNode head , int val){
-
-        /**
-         * 递归实现
-         */
-        if (head == null)
-            return null;
-        head.next = removeElements(head.next , val);
-        return head.val ==  val ? head.next :head;
-
-//        if (head == null) return head;
-//        // 设置虚拟头节点
-//        ListNode dummy = new ListNode(-1) , prev = dummy;
-//        dummy.next = head;
-//        while (head != null) {
+//    private com.leedcode.linkedlist._链表删除重复元素_203.ListNode removeElements(com.leedcode.linkedlist._链表删除重复元素_203.ListNode head , int val){
 //
-//            // 如果相同就删除元素 head
-//            if (head.val == val) {
-//                prev.next = head.next;
-//                head=head.next;
-//                continue;
-//            }
-//            // 如果不相同就跳过元素 head+1
-//            head = head.next;
-//            prev = prev.next;
-//        }
+//        /**
+//         * 递归实现
+//         */
+//        if (head == null)
+//            return null;
+//        head.next = removeElements(head.next , val);
+//        return head.val ==  val ? head.next :head;
 //
-//        return dummy.next;
-    }
-
+////        if (head == null) return head;
+////        // 设置虚拟头节点
+////        ListNode dummy = new ListNode(-1) , prev = dummy;
+////        dummy.next = head;
+////        while (head != null) {
+////
+////            // 如果相同就删除元素 head
+////            if (head.val == val) {
+////                prev.next = head.next;
+////                head=head.next;
+////                continue;
+////            }
+////            // 如果不相同就跳过元素 head+1
+////            head = head.next;
+////            prev = prev.next;
+////        }
+////
+////        return dummy.next;
+//    }
+//
 
 }
 
