@@ -1,4 +1,4 @@
-package com.leedcode.linkedlist._链表删除重复元素_203;
+package leedcode.linkedlist._链表删除重复元素_203;
 
 /**
  * @program: LeedCode
