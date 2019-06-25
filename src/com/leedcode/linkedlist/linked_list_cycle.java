@@ -33,7 +33,6 @@ public class Solution {
            if (nodeSet.contains(head)) 
             return true;
            else
-
             head = head.next;
         }
         return false;
