@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 import sun.util.logging.PlatformLogger.Bridge;
@@ -105,4 +108,31 @@ class BinaryTree {
             }
         }
     }
+
+    // level recusion BFS
+    levelTrans(BinaryTree node) {
+        if (node == null) return;
+
+        Set<BinaryNode> visited = new HashSet<>();
+        Queue<BinaryTree> q = new LinkedList<BinaryTree>();
+        q.offer(node);
+        while(!q.isEmpty()) {
+            int size = q.size();
+            // q.element(); 当队列为空时，会抛出空指针异常
+            for (int i = 0; i < size; i++) {
+                BinaryTree curNode = q.poll();
+                visit(node);
+                visited(curNode);
+                //presess cur node
+                BinaryTree[] childs[] = getChilds(curNode);
+                for (BinaryTree n : childs) {
+                    q.offer(n);
+                }
+            }
+        }
+    }
+    // return father`s childs without visited node
+    private BinaryTree[]  getChilds(BinaryTree father){
+        if (father == null) return null;
+    }   
 }
