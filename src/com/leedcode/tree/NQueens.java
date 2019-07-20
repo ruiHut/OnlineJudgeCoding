@@ -42,9 +42,6 @@ class solution {
             cols.remove(i);
             xyDif.remove(row - 1);
             xySum.remove(row + 1);
-
         }
-
-
     }
 }

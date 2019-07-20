@@ -9,7 +9,7 @@ import javax.swing.tree.TreeNode;
  *     TreeNode(int x) { val = x; }
  * }
  * 
- * same like 236, but we can complent they val 
+ * same like 236, but we can complent they  val 
  */
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {

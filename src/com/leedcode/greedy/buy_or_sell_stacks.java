@@ -9,20 +9,9 @@ class Solution {
         int len = prices.length;
         int profit = 0;
 
-        if (len == 0) return profit;
-
-        int curPrice = prices[0];
-        for(int i = 1; i < len; i++) {
-            int nextPrice = prices[i];
-            if (curPrice > nextPrice) { 
-                // sell it
-                curPrice = nextPrice;
-            } else {
-                // buy it
-                profit += nextPrice - curPrice;
-                // sell it 
-                curPrice = nextPrice;
-            }
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > prices[i - 1])
+                maxprofit += prices[i] - prices[i - 1];
         }
 
         return profit;

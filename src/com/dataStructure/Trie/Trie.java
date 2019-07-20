@@ -19,6 +19,8 @@ public class Trie {
 
         public boolean isWord; // 标识符确认是否为单词
         public Map<Character, Node> next;
+        // public childrens char[26];
+        public char val;
 
         public Node(boolean isWord) {
             this.isWord = isWord;
