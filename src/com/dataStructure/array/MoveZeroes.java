@@ -22,7 +22,6 @@ class Solution {
                 }
             }
         }
-
         for (int i = len - zeroNums; i <len; i++)
             nums[i] = 0;
 

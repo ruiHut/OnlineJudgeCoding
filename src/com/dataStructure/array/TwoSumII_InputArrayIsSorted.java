@@ -1,7 +1,7 @@
 /**
  * 1. 167 solution
  * 1. fuck it 
- * 2. sliding window
+ * 2. sliding window    
  */
 
 class Solution {
@@ -9,7 +9,7 @@ class Solution {
         int left = 0, right = numbers.length - 1;
         while( left < right) {
             if (numbers[left] + numbers[right] == target)
-                return new int[]{left + 1, right - 1};
+                return new int[]{left + 1, right + 1};
             else if (numbers[left] + numbers[right] > target)
                 right--;
             else 

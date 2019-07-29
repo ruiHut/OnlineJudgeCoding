@@ -1,6 +1,7 @@
 /**
  * 349 intersection of two arrays
- * 1. two set
+ * 1: Two Sets
+ * 2. Built-in Set Intersection
  * 
  */
 

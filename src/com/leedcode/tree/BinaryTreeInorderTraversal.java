@@ -34,7 +34,7 @@ class Solution {
         Stack<TreeNode> s = new Stack<>();
         List<Integer> res = new ArrayList<Integer>();
         TreeNode node =  root;
-        while (!s.isEmpty() && node != null) {
+        while (!s.isEmpty() || node != null) {
             if (node != null) {
                 s.push(node);
                 node = node.left;
