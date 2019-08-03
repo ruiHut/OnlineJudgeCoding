@@ -7,9 +7,9 @@ class Solution {
         ListNode cur = head;
         while (cur != null && cur.next != null) {
             if (cur.val == cur.next.val) {
-                while (cur != null && cur.val == cur.next.val)
+                int duplVal = cur.val;
+                while (cur != null && cur.val == duplVal)
                     cur = cur.next;
-                cur = cur.next;
             } else {
                 // move two node;
                 dummy.next = cur;
