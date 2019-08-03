@@ -24,6 +24,16 @@ class Solution {
         }
         return prev;
     }
+
+    // recursive assume you just have two node 1 -> 2
+    public  ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) return head;
+
+        ListNode temp = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return temp;
+    }
 }
 
 public class ListNode {
