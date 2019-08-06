@@ -2,6 +2,9 @@
  * 位运算
  * 1. 枚举所有位数， x % 2 == 0 ?  x = x >> 1
  * 2. 取最后一位非 0 数  x & (x - 1)
+ * 3. 空间换时间
+ *      * 查表法
+ *      * 二次查表法
  */
 
 
@@ -34,3 +37,11 @@ public class Solution {
     }
 } 
 
+// 二次查表法
+class Solution {
+    public int hummingWeight(int n) {
+        uint16 n1 = n & 0xFFFF;
+        uint16 n2 = (n>>16) & 0xFFFF;
+        return  result[n1]+result[n2];
+    }
+}
