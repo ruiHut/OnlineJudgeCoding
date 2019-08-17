@@ -1,7 +1,4 @@
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
 
 import jdk.internal.jshell.tool.resources.l10n;
 
@@ -14,149 +11,7 @@ import jdk.internal.jshell.tool.resources.l10n;
  *      1. 初始化并查集： 针对 ‘1’ 节点
  *      2. 遍历所有节点： ‘1’相邻节点合并  ‘0’ 不管 （统计）
  */
-
-// flood fll BFS 
-// BFS 对于存储 Queue 不优雅
-class Solution {
-    char[][] charQueue;
-    Set<E> visited = new HashSet<>();
-    public int numIslands(char[][] grid) {
-        int rows = grid.length; // 行数
-        int colums = grid[0].length; // 列数
-        charQueue = new char[2][colums];  // 第一行存放该节点行数，第二行存放该节点列数。
-        // 一维数组判断空 1. arr == null || arr.length == 0
-        // 二维数组判断空 arr == null || arr.length == 0 || (arr.length == 1 && arr[1].length == 0)
-        if (grid == null || rows == 0 || (rows == 1 && colums == 0)) return 0;
-
-
-        for(int i = 0; i < charQueue.length; i++){//控制每个一维数组 
-			for(int n = 0; n < charQueue[i].length; n++){//控制每个一维数组中的元素
-                if (i == 0) charQueue[i][n] = i;
-                else charQueue[i][n] = n;
-            }
-		}
-       
-        while(q.size() != 0) {
-            if (c == '1') {
-
-            }
-        }
-    }
-}
-
-// flood fill use DFS
-class Solution {
-    // Set visited; 对于此题二维数组遍历不存在是否被访问问题，无需 visited set
-    int rows;
-    int colums;
-    public int numIslands(char[][] grid) {
-        rows = grid.length;
-        colums = grid[0].length;
-        if (grid == null || rows == 0 || (rows == 1 && colums == 0)) return 0;
-
-        Set visited = new HashSet();
-        floodFillWithDFS(grid, 0, 0, visited);
-        return landsNum(grid);
-    }
-
-    private void floodFillWithDFS(char[][] grid, int i, int n, Set visited) {
-        // ending time
-        if (i == rows - 1 && n == colums - 1) return;
-
-        // visited.add(i, n)
-        char cur = grid[i][n];
-        if (cur == "1") {
-            floodFillAround(grid, i, n);
-        }
-        row = nextRow(i);
-        colum = nextColum(n);
-        floodFillWithDFS(grid, row, colum, visited);
-        // process cur node
-    }
-
-    private int landsNum(char[][] grid) {
-        int nums = 0;
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < colums; j++) {
-                char c = grid[i][j];
-                if (c == '1') nums += 1;
-            }
-        }       
-        return nums;
-    }
-
-    private void floodFillAround(char[][] grid, int row, int colum) {
-        
-    }
-}
-
-// DFS
-class Solution {
-    static int[] dx;
-    static int[] dy;
-    
-    private int rows;
-    private int colums;
-    private int[][] grid;
-    
-    private Set visited;
-    public int numIslands(char[][] grid) {
-        if (grid == null || grid.length == 0 || (grid.length == 1 && grid[0].length == 0)) return 0;
-        
-        initIslands(grid);
-
-        int sum = 0;
-        for (int i = 0; i < rows - 1; i++) {
-            for (int j = 0; j < colums; j++) {
-               sum = sum + floodFillDFS(i, j);
-            }
-        }
-        return sum;
-    }
-
-    private int  floodFillDFS(int x, int y) {
-        if (!isValid(x, y)) return 0;
-
-        // visited.add((x, y));
-        for (int i = 0; i < 4; i++) 
-            floodFillDFS(x + dx[i], y + dy[i]);
-
-        return 1;
-    }
-
-    // BFS
-    private int floodFillBFS(int x, int y) {
-        if (!isValid(x, y)) return 0;
-
-        // visited.add((x, y));
-
-    }
-
-    /**
-     * 1. 越界
-     * 2. 为 0
-     * 3. 被访问过
-     */
-    private boolean isValid(int x, int y) {
-        if (x < 0 || x >= rows || y < 0 || y >= colums) return false;
-
-        if (grid[x][y] == '0') return false;
-
-        // 如何确定是否被访问
-
-        return true;
-    }
-
-    private void initIslands(char[][] grid) {
-        rows = grid.length;
-        colums = grid[0].length;
-        grid =  grid;
-        dx = new int[]{-1, 1, 0, 0};
-        dy = new int[]{0, 0, -1, 1};
-        visited = new HashMap();
-    }
-}
-
+// flood fill
 public class Solution {
 
     private int n;
@@ -166,12 +21,8 @@ public class Solution {
         int count = 0;
         n = grid.length;
         if (n == 0) return 0;
-        
-        dx = new int[]{0, 0, -1 ,1};
-        dy = new int[]{-1, 1, 0, 0};
 
         m = grid[0].length;
-
         for (int i = 0; i < n; i++){
             for (int j = 0; j < m; j++)
                 if (grid[i][j] == '1') {
@@ -195,7 +46,7 @@ public class Solution {
 
 
 // union find
-class solution {
+class Solution {
 
     static int[][] distance = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
     static int rows;
