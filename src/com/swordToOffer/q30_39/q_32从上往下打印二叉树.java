@@ -1,6 +1,7 @@
 package com.swordToOffer.q30_39;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -27,6 +28,56 @@ public class q_32从上往下打印二叉树 {
         }
 
         return res;
+    }
+
+    // 按层打印
+    ArrayList<ArrayList<Integer>> Print2(TreeNode pRoot) {
+        ArrayList<ArrayList<Integer>> ret = new ArrayList<>();
+        if (pRoot == null)
+            return ret;
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(pRoot);
+        while (!queue.isEmpty()) {
+            ArrayList<Integer> levelRes = new ArrayList<>();
+            int curSize = queue.size();
+            for (int i = 0; i < curSize; i++) {
+                TreeNode temp = queue.poll();
+                levelRes.add(temp.val);
+                if (temp.left != null) queue.offer(temp.left);
+                if (temp.right != null) queue.offer(temp.right);
+            }
+            ret.add(levelRes);
+        }
+
+        return ret;
+    }
+
+    // 按之字形顺序打印二叉树
+
+    public ArrayList<ArrayList<Integer>> Print3(TreeNode pRoot) {
+        ArrayList<ArrayList<Integer>> ret = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(pRoot);
+        boolean reverse = false;
+        while (!queue.isEmpty()) {
+            ArrayList<Integer> list = new ArrayList<>();
+            int cnt = queue.size();
+            while (cnt-- > 0) {
+                TreeNode node = queue.poll();
+                if (node == null)
+                    continue;
+                list.add(node.val);
+                queue.add(node.left);
+                queue.add(node.right);
+            }
+            if (reverse)
+                Collections.reverse(list);
+            reverse = !reverse;
+            if (list.size() != 0)
+                ret.add(list);
+        }
+        return ret;
     }
 }
 
